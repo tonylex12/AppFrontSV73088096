@@ -62,6 +62,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatToolbarModule,
     MatTooltipModule,
     MatNativeDateModule,
+    MatTableModule,
   ],
 })
 export class MaterialModule {}
