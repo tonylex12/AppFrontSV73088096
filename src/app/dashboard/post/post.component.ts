@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   standalone: true,
   imports: [MaterialModule, HttpClientModule],
   templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css'],
+  styleUrl: './post.component.css',
 })
 export class PostComponent implements OnInit {
   posts: PostResponse[] = [];
