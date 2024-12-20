@@ -1,1 +1,23 @@
-<p>dashboard works!</p>
+<mat-toolbar color="primary">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>AppFrontendSV73088096</span>
+  <button mat-button (click)="goPosts()">Posts</button>
+  <button mat-button (click)="goUsers()">Usuarios</button>
+
+  <span class="example-spacer"></span>
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+    (click)="logout()"
+  >
+    <mat-icon>power_settings_new</mat-icon>
+  </button>
+</mat-toolbar>
+<router-outlet></router-outlet>
