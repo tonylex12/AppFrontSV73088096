@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { MaterialModule } from '../../angular-material/material/material.module';
 import { UserResponse } from '../../models/user-response.models';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [MaterialModule, HttpClientModule],
+  imports: [MaterialModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css',
 })

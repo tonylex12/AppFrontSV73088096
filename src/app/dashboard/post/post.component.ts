@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { PostResponse } from '../../models/post-response.models';
 import { MaterialModule } from '../../angular-material/material/material.module';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-post',
   standalone: true,
-  imports: [MaterialModule, HttpClientModule],
+  imports: [MaterialModule],
   templateUrl: './post.component.html',
   styleUrl: './post.component.css',
 })
