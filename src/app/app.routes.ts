@@ -3,7 +3,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { authGuard } from './auth.guard';
 import { HomeComponent } from './dashboard/home/home.component';
-import { UsersComponent } from './dashboard/users/users.component';
+import { UserComponent } from './dashboard/user/user.component';
 import { PostComponent } from './dashboard/post/post.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
@@ -15,7 +15,7 @@ export const routes: Routes = [
     canActivate: [authGuard],
     children: [
       { path: 'home', component: HomeComponent },
-      // { path: 'users', component: UsersComponent },
+      { path: 'users', component: UserComponent },
       { path: 'posts', component: PostComponent },
     ],
   },
