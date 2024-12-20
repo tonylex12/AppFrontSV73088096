@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PostResponse } from '../../models/post-response.models';
 import { MaterialModule } from '../../angular-material/material/material.module';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { PostViewmodelService } from '../../viewmodels/post-viewmodel.service';
 
 @Component({
   selector: 'app-post',
@@ -11,22 +10,21 @@ import { Observable } from 'rxjs';
   templateUrl: './post.component.html',
   styleUrl: './post.component.css',
 })
-export class PostComponent implements OnInit {
+export class PostComponent  {
   posts: PostResponse[] = [];
-  private apiUrl = 'https://jsonplaceholder.typicode.com/posts';
 
-  constructor(private http: HttpClient) {}
+  constructor(private postViewModel: PostViewmodelService) {}
 
   ngOnInit(): void {
-    this.listarPosts().subscribe({
+    this.postViewModel.listarPosts().subscribe({
       next: (response) => {
         console.log(response);
         this.posts = response;
       },
+      error: (error) => {
+        console.log(error);
+      },
     });
   }
 
-  listarPosts(): Observable<PostResponse[]> {
-    return this.http.get<PostResponse[]>(this.apiUrl);
-  }
 }

@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MaterialModule } from '../../angular-material/material/material.module';
 import { UserResponse } from '../../models/user-response.models';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/internal/Observable';
+import { UserViewmodelService } from '../../viewmodels/user-viewmodel.service';
 
 @Component({
   selector: 'app-user',
@@ -11,23 +10,20 @@ import { Observable } from 'rxjs/internal/Observable';
   templateUrl: './user.component.html',
   styleUrl: './user.component.css',
 })
-export class UserComponent implements OnInit {
+export class UserComponent {
   users: UserResponse[] = [];
 
-  private apiUrl = 'https://jsonplaceholder.typicode.com/users';
-
-  constructor(private http: HttpClient) {}
+  constructor(private userViewModel: UserViewmodelService) {}
 
   ngOnInit(): void {
-    this.listarUsers().subscribe({
+    this.userViewModel.listarUsers().subscribe({
       next: (response) => {
         console.log(response);
         this.users = response;
       },
+      error: (error) => {
+        console.log(error);
+      },
     });
-  }
-
-  listarUsers(): Observable<UserResponse[]> {
-    return this.http.get<UserResponse[]>(this.apiUrl);
   }
 }
