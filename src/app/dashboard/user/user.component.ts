@@ -15,7 +15,6 @@ export class UserComponent implements OnInit {
   users: UserResponse[] = [];
 
   private apiUrl = 'https://jsonplaceholder.typicode.com/users';
-  displayedColumns: string[] = ['id', 'name', 'username', 'email', 'phone', 'website'];
 
   constructor(private http: HttpClient) {}
 

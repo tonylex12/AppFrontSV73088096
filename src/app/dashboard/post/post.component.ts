@@ -14,7 +14,6 @@ import { Observable } from 'rxjs';
 export class PostComponent implements OnInit {
   posts: PostResponse[] = [];
   private apiUrl = 'https://jsonplaceholder.typicode.com/posts';
-  displayedColumns: string[] = ['title', 'contact', 'lostDate'];
 
   constructor(private http: HttpClient) {}
 
